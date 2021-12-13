@@ -3,6 +3,8 @@ package com.bilgeadam.util;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
+import com.bilgeadam.entity.StudentEntity;
+
 public class HibernateUtil {
 	private static final SessionFactory sessionFactory = sessionFactoryHibernate();
 	
@@ -13,7 +15,7 @@ public class HibernateUtil {
 			Configuration configuration = new Configuration();
 			
 			// entity classlarımızı buraya ekleyeceğiz
-			// configuration.addAnnotatedClass(StudentEntity.class);
+			configuration.addAnnotatedClass(StudentEntity.class);
 			
 			SessionFactory factory = configuration.configure("hibernate.cfg.xml").buildSessionFactory();
 			return factory;
